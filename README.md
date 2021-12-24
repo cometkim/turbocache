@@ -23,6 +23,12 @@ To link your turborepo with the remote cache,
 echo '{"teamId":"_", "apiUrl": "https://turbocache.your-account.workers.dev"}' > .turbo/config.json
 ```
 
+Finally, you can use turbo repo with your own remote cache!
+
+```bash
+turbo run build --api="https://turbocache.your-account.workers.dev" --token="<YOUR_SECRET_KEY>"
+```
+
 ## Roadmap
 
 If I ever actually use this...
@@ -33,7 +39,7 @@ If I ever actually use this...
 - [ ] Web Client
 - [ ] ... What else?
 
-BTW, Turborepo is still in early stage, so there's room for improvement, but at the same time. It's not that clean and quite coupled to Vercel's interface. I assume it's likely to be completely rewritten (in Rust?)
+BTW, Turborepo is still in early stage, so there's room for many improvements, but at the same time, its structure is not that clean and quite coupled to Vercel's interface. I assume it's likely to be completely rewritten eventually (in Rust?)
 
 ## LICENSE
 
