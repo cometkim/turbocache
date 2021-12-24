@@ -1,10 +1,10 @@
 # turborcache
 
-Simple and Fast [custom remote cache](https://turborepo.org/docs/features/remote-caching#custom-remote-caches) for [Turborepo](https://turborepo.org/) on the Cloudflare Workers & KV
+Simple and Fast [custom remote cache](https://turborepo.org/docs/features/remote-caching#custom-remote-caches) for [Turborepo](https://turborepo.org/) on the [Cloudflare Workers & KV](https://workers.cloudflare.com/)
 
 ## How to use
 
-Fork this, monify `wrangler.toml` and deploy to your Cloudflare Workers account.
+Fork this, modify `wrangler.toml` and deploy to your Cloudflare account.
 
 You should also setup a KV namespace and the secret key.
 
