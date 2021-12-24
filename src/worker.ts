@@ -44,6 +44,12 @@ addEventListener('fetch', event => {
         putArtifact(hash, request.body),
       );
     }
+
+    default: {
+      return void event.respondWith(
+        new Response('Method not allowed', { status: 405 }),
+      );
+    }
   }
 });
 
