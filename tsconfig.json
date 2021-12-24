@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "lib": ["ES2020"],
+    "strict": true
+  }
+}

@@ -1,0 +1,16 @@
+name = "turbocache"
+type = "javascript"
+workers_dev = true
+compatibility_date = "2021-12-24"
+compatibility_flags = []
+
+[[kv_namespaces]]
+binding = "STORAGE"
+id = ""
+preview_id = ""
+
+[build]
+command = "yarn esbuild src/worker.ts --bundle --outfile=dist/worker.js --format=esm"
+
+[build.upload]
+format = "service-worker"
