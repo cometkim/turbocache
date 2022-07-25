@@ -9,24 +9,30 @@ Fork this, modify `wrangler.toml` and deploy to your Cloudflare account.
 You should also setup a KV namespace and the secret key.
 
 ```bash
-# to create a KV namspace
+# to create a KV namespace and put the id in wrangler.toml
 yarn wrangler kv:namespace create STORAGE
+
+# to create a KV preview_id and put the preview_id in wrangler.toml
+yarn wrangler kv:namespace create STORAGE --preview
 
 # to provide a secret key
 yarn wrangler secret put SECRET_KEY
 # then enter a special text to restrict access to your cache
 ```
 
-To link your turborepo with the remote cache,
+Next, deploy the worker. If you are deploying from CI, you will need an API token, you can create from [here](https://dash.cloudflare.com/profile/api-tokens) and the minimum permissions required for the API token are `Workers KV Storage:Edit`, `Workers Scripts:Edit`.
 
-```bash
-echo '{"teamId":"_", "apiUrl": "https://turbocache.your-account.workers.dev"}' > .turbo/config.json
+```
+yarn deploy
+
+# In case when deploying from CI
+CLOUDFLARE_API_TOKEN=xxxx yarn deploy
 ```
 
 Finally, you can use turbo repo with your own remote cache!
 
 ```bash
-turbo run build --team="whatever" --token="<YOUR_SECRET_KEY>"
+turbo run build --team="whatever" --api="https://turbocache.YOUR-ACCOUNT.workers.dev/" --token="<YOUR_SECRET_KEY>"
 ```
 
 ## Roadmap
