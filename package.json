@@ -5,6 +5,9 @@
   "type": "module",
   "main": "dist/worker.js",
   "license": "MIT",
+  "scripts": {
+    "deploy": "wrangler publish src/worker.ts"
+  },
   "devDependencies": {
     "@cloudflare/workers-types": "^3.3.0",
     "esbuild": "^0.14.8",
