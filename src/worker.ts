@@ -28,6 +28,12 @@ addEventListener('fetch', event => {
   const { hash } = match.groups!;
 
   switch (request.method) {
+    case 'HEAD': {
+      return void event.respondWith(
+        headArtifact(hash),
+      );
+    }
+
     case 'GET': {
       return void event.respondWith(
         getArtifact(hash),
@@ -52,6 +58,15 @@ addEventListener('fetch', event => {
     }
   }
 });
+
+async function headArtifact(hash: string): Promise<Response> {
+  const artifact = await STORAGE.get(key(hash), 'stream');
+  if (artifact) {
+    return new Response(null);
+  } else {
+    return new Response(null, { status: 404 });
+  }
+}
 
 async function getArtifact(hash: string): Promise<Response> {
   const artifact = await STORAGE.get(key(hash), 'stream');
